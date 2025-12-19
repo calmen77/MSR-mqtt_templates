@@ -1,5 +1,17 @@
 ## Change Log
 
+*25353*
+
+All templates rewritten to include `zigbee2mqtt_common.yaml`
+
+Added: `zigbee2mqtt_generic_power_switch`, `zigbee2mqtt_generic_power_switch_pm`, `zigbee2mqtt_tuya_2_gang_switch`, `zigbee2mqtt_tuya_leak_sensor`
+
+Removed: `zigbee2mqtt_tuya_smart_plug_pm`, `zigbee2mqtt_ikea_control_outlet` (replaced by `zigbee2mqtt_generic_power_switch*`)
+
+All `zigbee2mqtt_*` templates now included in `zigbee2mqtt.zip`
+
+---
+
 `zigbee2mqtt_tuya_door_sensor` *24087* - Initial release.
 
 ---
