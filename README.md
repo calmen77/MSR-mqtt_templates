@@ -5,15 +5,15 @@ MQTT templates for Multi-hub Reactor.
 Download the desired yaml files or bundled zip archives and save them in the reactor/config/mqtt_templates folder (no need to exctract the zip files), **restart Reactor**.
 
 To update an existing template just do the same procedure.
-MQTTController build 24050 and newer rebuilds the entity when a new template version is detected.
+MQTTController rebuilds the entity when a new template version is detected.
 
 # Configuration
-To add an entity using the downloaded template please refer to https://reactor.toggledbits.com/docs/MQTTController/#easy-device-configuration-using-existing-template and supply the `topic:` and template name (listed below) in the `uses_template:` key.
+To add an entity using the downloaded template please refer to https://reactor.toggledbits.com/docs/MQTTController/#easy-device-configuration-using-existing-template and supply the `topic:` and template name (listed below) in the `include:` key.
 
 All *zigbee2mqtt_** templates have an optional key named `prefix:` that you can add and supply a value for if your Zigbee2MQTT prefix is not the default *zigbee2mqtt*.
 
 ### Zigbee2MQTT settings
-mqtt_device.online requires `availability: true` *(default = false)* and `legacy_availability_payload: true` *(default = true)* in your Zigbee2MQTT configuration.
+x_mqtt_device.online requires `availability: enabled: true` *(default = false)* in your Zigbee2MQTT configuration. See [Device Availability](https://www.zigbee2mqtt.io/guide/configuration/device-availability.html)
 
 # Templates
 | Template name | Description | Capabilities | Additional info | Bundled in |
