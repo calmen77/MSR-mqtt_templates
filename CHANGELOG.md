@@ -1,5 +1,11 @@
 ## Change Log
 
+*26091*
+
+Updated `zigbee2mqtt_common.yaml` availability to json payload. Zigbee2MQTT > 2.0 now required.
+
+---
+
 *25353*
 
 All templates rewritten to include `zigbee2mqtt_common.yaml`
