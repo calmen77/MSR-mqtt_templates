@@ -6,7 +6,7 @@ description: "Custom template for Xiaomi DaFang Hacks / XiaoFang 1S / Wyzecam V2
 author: "@Crille, Smart Home Community"
 license: MIT
 repository: "https://github.com/calmen77/MSR-mqtt_templates"
-version: 22353
+version: 26145
 
 templates:
   xiaofang_motion_light_sensor:
@@ -14,9 +14,8 @@ templates:
       - motion_sensor
       - light_sensor
       - string_sensor
-      - power_switch
-      - toggle
-    primary_attribute: power_switch.state
+      - arming
+    primary_attribute: arming.state
     requires: [topic]
     events:
       "%prefix:myhome%/%topic%/motion":
@@ -24,7 +23,7 @@ templates:
           if_expr: '! isnull(payload)'
           expr: 'payload == "ON"'
       "%prefix:myhome%/%topic%/motion/detection":
-        "power_switch.state":
+        "arming.state":
           if_expr: '! isnull(payload)'
           expr: 'payload == "ON"'
       "%prefix:myhome%/%topic%/brightness":
@@ -38,15 +37,15 @@ templates:
           if_expr: '! isnull(payload)'
           expr: 'substr(ltrim(payload.uptime), 0, 8)'
     actions:
-      power_switch:
-        "on":
+      arming:
+        "arm":
           topic: "%prefix:myhome%/%topic%/motion/detection/set"
           payload: "ON"
-        "off":
+        "disarm":
           topic: "%prefix:myhome%/%topic%/motion/detection/set"
           payload: "OFF"
         set:
           topic: "%prefix:myhome%/%topic%/motion/detection/set"
           payload:
-            expr: "parameters.state ? 'on' : 'off'"
+            expr: "parameters.state ? 'ON' : 'OFF'"
             type: raw
